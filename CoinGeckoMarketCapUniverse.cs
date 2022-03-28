@@ -28,7 +28,7 @@ namespace QuantConnect.DataSource
     /// Example custom data type
     /// </summary>
     [ProtoContract(SkipConstructor = true)]
-    public class MyCustomDataUniverseType : BaseData
+    public class CoinGeckoMarketCapUniverse : BaseData
     {
         /// <summary>
         /// Some custom data property
@@ -85,7 +85,7 @@ namespace QuantConnect.DataSource
 
             var someNumericProperty = decimal.Parse(csv[2], NumberStyles.Any, CultureInfo.InvariantCulture); 
 
-            return new MyCustomDataUniverseType
+            return new CoinGeckoMarketCapUniverse
             {
                 Symbol = new Symbol(SecurityIdentifier.Parse(csv[0]), csv[1]),
                 SomeNumericProperty = someNumericProperty,
