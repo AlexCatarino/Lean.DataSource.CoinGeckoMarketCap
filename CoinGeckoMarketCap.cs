@@ -27,7 +27,7 @@ namespace QuantConnect.DataSource
     /// Example custom data type
     /// </summary>
     [ProtoContract(SkipConstructor = true)]
-    public class MyCustomDataType : BaseData
+    public class CoinGeckoMarketCap : BaseData
     {
         /// <summary>
         /// Some custom data property
@@ -78,7 +78,7 @@ namespace QuantConnect.DataSource
             var csv = line.Split(',');
 
             var parsedDate = Parse.DateTimeExact(csv[0], "yyyyMMdd");
-            return new MyCustomDataType
+            return new CoinGeckoMarketCap
             {
                 Symbol = config.Symbol,
                 SomeCustomProperty = csv[1],
@@ -92,7 +92,7 @@ namespace QuantConnect.DataSource
         /// <returns>A clone of the object</returns>
         public override BaseData Clone()
         {
-            return new MyCustomDataType
+            return new CoinGeckoMarketCap
             {
                 Symbol = Symbol,
                 Time = Time,
